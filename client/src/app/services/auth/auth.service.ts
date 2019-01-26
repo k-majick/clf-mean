@@ -36,11 +36,33 @@ export class AuthService {
     );
   }
 
+  getProfile() {
+    const token = localStorage.getItem('id_token');
+    console.log(token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token
+      })
+    }
+    return this.http.get('http://localhost:7777/users/profile', httpOptions)
+      .pipe(
+        map(res => res),
+        catchError(this.handleError),
+    )
+  }
+
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  loadToken() {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+    // console.log('loadToken ' + token);
   }
 
   logout() {
