@@ -19,21 +19,13 @@ export class AuthService {
   registerUser(user): any {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:7777/users/register', user, { headers: headers })
-      .pipe(
-        map(res => res),
-        catchError(this.handleError),
-    );
+    return this.http.post('http://localhost:7777/users/register', user, { headers: headers });
   }
 
   authenticateUser(user): any {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:7777/users/authenticate', user, { headers: headers })
-      .pipe(
-        map(res => res),
-        catchError(this.handleError),
-    );
+    return this.http.post('http://localhost:7777/users/authenticate', user, { headers: headers });
   }
 
   getProfile() {
@@ -44,12 +36,8 @@ export class AuthService {
         'Content-Type': 'application/json',
         'Authorization': token
       })
-    }
-    return this.http.get('http://localhost:7777/users/profile', httpOptions)
-      .pipe(
-        map(res => res),
-        catchError(this.handleError),
-    )
+    };
+    return this.http.get('http://localhost:7777/users/profile', httpOptions);
   }
 
   storeUserData(token, user) {
