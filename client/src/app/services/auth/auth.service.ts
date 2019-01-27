@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +27,6 @@ export class AuthService {
 
   getProfile() {
     const token = localStorage.getItem('id_token');
-    console.log(token);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -59,8 +55,4 @@ export class AuthService {
     localStorage.clear();
   }
 
-  private handleError(error: HttpErrorResponse) {
-    console.error(error);
-    return Observable.throw(error.message || 'Server error');
-  }
 }

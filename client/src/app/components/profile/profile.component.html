@@ -1,5 +1,9 @@
-<h2 class="title">Profile</h2>
+<h2 class="title">User profile</h2>
 
-<div *ngIf="profile">
-
+<div *ngIf="user">
+  <ul class="list-group">
+    <li class="list-group-item">Name: {{ user.name }}</li>
+    <li class="list-group-item">Username: {{ user.username }}</li>
+    <li class="list-group-item">E-mail: {{ user.email }}</li>
+  </ul>
 </div>

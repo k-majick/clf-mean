@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
   sendRegisterForm() {
     const user = {
-      name: this.registerForm.controls.userUsername.value,
+      name: this.registerForm.controls.userName.value,
       username: this.registerForm.controls.userUsername.value,
       email: this.registerForm.controls.userEmail.value,
       password: this.registerForm.controls.userPassword.value,
@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService.registerUser(user).subscribe(data => {
-      if (data.success) {        
+      if (data.success) {
         this.flashMsg.show(data.msg, { cssClass: 'alert-success', timeout: 5000 })
         this.router.navigate(['login']);
       } else {
