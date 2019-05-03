@@ -43,10 +43,14 @@ export class AuthService {
     this.user = user;
   }
 
-  loadToken() {
-    const token = localStorage.getItem('id_token');
-    this.authToken = token;
-    // console.log('loadToken ' + token);
+  // loadToken() {
+  //   const token = localStorage.getItem('id_token');
+  //   this.authToken = token;
+  //   // console.log('loadToken ' + token);
+  // }
+
+  loggedIn() {
+    return this.authToken;
   }
 
   logout() {

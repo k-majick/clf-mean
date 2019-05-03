@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthGuardService } from './services/authGuard/authGuard.service';
 
 import {
   AppComponent,
@@ -25,8 +26,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardService] },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuardService] },
 ];
 
 @NgModule({
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot(),
   ],
   providers: [
-    AuthService,
+    AuthService, AuthGuardService
   ],
   bootstrap: [
     AppComponent,

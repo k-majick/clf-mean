@@ -16,6 +16,7 @@
     "@angular/compiler": "~7.2.14",
     "@angular/core": "~7.2.14",
     "@angular/forms": "~7.2.14",
+    "@angular/http": "^7.2.14",
     "@angular/platform-browser": "~7.2.14",
     "@angular/platform-browser-dynamic": "~7.2.14",
     "@angular/router": "~7.2.14",
