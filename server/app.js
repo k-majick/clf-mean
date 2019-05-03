@@ -42,8 +42,13 @@ require('./config/passport')(passport);
 
 app.use('/users', users);
 
+// Index route
 app.get('/', function(req, res, next) {
   res.send('Invalid endpoint');
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(port, () => {
