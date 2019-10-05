@@ -1,5 +1,5 @@
 ## Features:
-- Angular 7.x.x
+- Angular 8
 - MongoDB
 - ExpressJS
 - Bootstrap/SASS/BEM
